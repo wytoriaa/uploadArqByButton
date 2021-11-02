@@ -1,0 +1,82 @@
+<div class="lecture-text-container" style="padding-bottom: 30px;">
+    <h1 style="border-bottom: 2px solid black;">Enviar Código Fonte - Aula 01</h1>
+    <p>Antes de seguir para a próxima aula, você deve fazer upload do seu código-fonte para atender
+        ao execício desta aula.</p>
+    <p>Orientações para envio do código-fonte:</p>
+    <ol
+        style="background-color: #d3d3d344; width: 90%; text-align: justify; margin: 0px auto; padding: 10px 10px 10px 35px; border-left: solid thick #d3d3d3;">
+        <li>Clique em "Enviar Código-Fonte" para abrir a janela de seleção de arquivos;</li>
+        <li>Navegue até seu diretório de projetos e abra a pasta chamada “Prática 01”;</li>
+        <li>Selecione todos os arquivos que correspondem ao código-fonte deste exercício, incluindo HTML, CSS,
+            Javascript e Imagens, se aplicável;</li>
+        <li>Tipos de arquivos aceitos para envio: HTML, CSS, Javascript e Imagens</li>
+    </ol>
+    <p>
+    <div
+        style="background-color: #fef5d4; width: 90%; text-align: justify; margin: 0px auto; padding: 15px 15px 15px 15px; border-left: solid thick #f1bf0a; ">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: #f1bf0a;    font-size: 1.33333333em;
+        line-height: .75em;
+        vertical-align: -15%;"></i>
+        <span style="font-weight: 600;">ATENÇÃO: </span>Após enviar os arquivos, aguarde a confirmação de recebimento
+        para sair desta página
+    </div>
+    </p>
+    <p style="padding-top: 35px;">Formulário para envio do código-fonte:</span>
+    <p>
+    <div style="justify-content: center;">
+    <iframe src="https://nostalgic-rosalind-d3aa88.netlify.app" width="800" height="380" style="align-items: center;" ></iframe>
+    </div>
+    <script>
+        // Evento DOM Loaded
+        document.addEventListener("DOMContentLoaded", (e) => {
+            document.getElementById("fileUploadContainer_button").disabled = false
+        })
+
+        // Botão Enviar
+        document.getElementById("fileUploadContainer_button").addEventListener("click", (e) => {
+            alert("TESTE")
+        })
+
+        // Input File
+        document.getElementById("divFileUploadButton").addEventListener("click", (e) => {
+            document.getElementById("fileUploader").click()
+        })
+
+        document.getElementById("fileUploader").addEventListener("input", (e) => {
+            e.stopImmediatePropagation()
+            var divFilUploadList = document.getElementById("divFileUploadList")
+            divFilUploadList.innerHTML = ""
+
+            var divArquivosSelecionados = document.createElement("div")
+            divArquivosSelecionados.id = "arquivosSelecionados"
+            divArquivosSelecionados.style.fontSize = "12px"
+            divArquivosSelecionados.style.fontWeight = "500"
+            divArquivosSelecionados.style.color = "#555"
+            divArquivosSelecionados.style.padding = "10px 0"
+            divArquivosSelecionados.innerHTML = "ARQUIVOS SELECIONADOS"
+            divFilUploadList.appendChild(divArquivosSelecionados)
+
+
+            for (const file of e.target.files) {
+                var divArquivo = document.createElement("div")
+                divArquivo.style.backgroundColor = "#fff"
+                divArquivo.style.height = "40px"
+                divArquivo.style.width = "50%"
+                divArquivo.style.paddingLeft = "35px"
+                divArquivo.style.margin = "4px 0"
+                divArquivo.style.alignItems = "flex-start"
+                divArquivo.style.display = "flex"
+                divArquivo.style.position = "relative"
+                divArquivo.style.webkitBoxAlign = "center"
+                divArquivo.style.webkitBoxPack = "center"
+                divArquivo.style.justifyContent = "center"
+                divArquivo.style.webkitBoxOrient = "vertical"
+                divArquivo.style.webkitFlexDirection = "column"
+                divArquivo.style.borderRadius = "4px;"
+                divArquivo.innerHTML = file.name
+                divFilUploadList.appendChild(divArquivo)
+            }
+
+            divFileUploadList.setAttribute("style", "padding-bottom:50px")
+        })
+    </script>
